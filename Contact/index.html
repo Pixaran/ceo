@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">  
-        <form id="contact" action="https://formsubmit.co/jk.shasaravanan@gmail.com" method="POST">
+        <form id="contact" name="contact" action="https://formsubmit.co/saravanansha@tutamail.com" method="POST" netlify-honeypot="bot-field" data-netlify="true">
 			<h3>Quick Contact</h3>
           <h4>Contact us today, and get reply with in 48 hours!</h4>
           <fieldset>
@@ -25,13 +25,16 @@
           <fieldset>
             <textarea placeholder="Type your Message Here...." tabindex="4" name="Message" required></textarea>
           </fieldset>
+		  <div class="field"><div data-netlify-recaptcha="true"></div></div>
           <fieldset>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            <button name="submit" onclick="submit()"
+
+			type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
           </fieldset>
-		  <input type="hidden" name="_next" value="https://pixaran.github.io/Saravanan/Contactform/thankyou">
+		  <input type="hidden" name="_next" value="https://Saravana.cf/Contact/thankyou">
 		  <input type="hidden" name="_captcha" value="false">
 		</form>
-		<h4>© 2021 Pixaran │ All rights reserved</h4>
+		<h4>© 2021 Pixaran │ Saravanan</h4>
         
       </div>
       <style>
@@ -55,7 +58,7 @@ body {
 	font-size: 12px;
 	line-height:30px;
 	color:#777;
-	background-image: linear-gradient(to top, rgba(175, 175, 201, 0.42), rgba(175, 175, 201, 0.42)), url('https://www.itl.cat/pngfile/big/141-1412614_hd-16-islamic-16-9.jpg');
+	background-image: linear-gradient(to top, rgba(175, 175, 201, 0.42), rgba(175, 175, 201, 0.42)), url('fog.jpg');
 }
 
 .container {
@@ -165,5 +168,13 @@ fieldset {
 }
 
       </style>
+	   <script>
+		function submit() {
+   var frm = document.getElementsByName('contact')[0];
+   frm.submit(); // Submit the form
+   frm.reset();  // Reset all form data
+   return false; // Prevent page refresh
+	</script>
 </body>
 </html>
+<!--https://www.itl.cat/pngfile/big/141-1412614_hd-16-islamic-16-9.jpg-->
