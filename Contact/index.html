@@ -4,12 +4,36 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Contact Us</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href=''>
+    <meta name='viewport' content='initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href=' https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css'>
     <script src=''></script>
 </head>
 <body>
     <div class="container">  
+		<!-- Messenger Chat plugin Code -->
+		<div id="fb-root"></div>
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  xfbml            : true,
+			  version          : 'v10.0'
+			});
+		  };
+  
+		  (function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/en_GB/sdk/xfbml.customerchat.js';
+			fjs.parentNode.insertBefore(js, fjs);
+		  }(document, 'script', 'facebook-jssdk'));
+		</script>
+  
+		<!-- Your Chat plugin code -->
+		<div class="fb-customerchat"
+		  attribution="page_inbox"
+		  page_id="103866015172500">
+		</div>
         <form id="contact" name="contact" action="https://formsubmit.co/saravanansha@tutamail.com" method="POST" netlify-honeypot="bot-field" data-netlify="true">
 			<h3>Quick Contact</h3>
           <h4>Contact us today, and get reply with in 48 hours!</h4>
@@ -25,7 +49,14 @@
           <fieldset>
             <textarea placeholder="Type your Message Here...." tabindex="4" name="Message" required></textarea>
           </fieldset>
-		  <fieldset><div data-netlify-recaptcha="true"></div></fieldset>
+		  <fieldset><div class="pretty p-icon p-round p-pulse">
+			<input type="checkbox" required>
+			<div class="state p-success">
+				<i class="icon mdi mdi-check"></i>
+				<label><i>i am not a robot</i> </label>
+			</div></fieldset>
+	
+		
           <fieldset>
             <button name="submit" onclick="submit()"
 
@@ -53,6 +84,9 @@
 }
 
 body {
+	animation: fadeInAnimation ease 1.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
 	font-family:"Open Sans", Helvetica, Arial, sans-serif;
 	font-weight:300;
 	font-size: 12px;
@@ -60,6 +94,14 @@ body {
 	color:#777;
 	background-image: linear-gradient(to top, rgba(175, 175, 201, 0.42), rgba(175, 175, 201, 0.42)), url('fog.jpg');
 }
+@keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
 .container {
 	max-width:400px;
@@ -171,9 +213,13 @@ fieldset {
 	   <script>
 		function submit() {
    var frm = document.getElementsByName('contact')[0];
-   frm.submit(); // Submit the form
-   frm.reset();  // Reset all form data
-   return false; // Prevent page refresh
+   frm.submit();
+   frm.reset(); 
+   return false;
+		}
+		window.fadeIn = function(obj) {
+    $(obj).fadeIn(1000);
+}
 	</script>
 </body>
 </html>
